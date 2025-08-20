@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dreambot">
+
+  <!-- Constants -->
+  <xacro:property name="PI" value="3.14159"/>
+  <xacro:property name="effort" value="30.0"/>
+  <xacro:property name="velocity" value="10.0"/>
+
+  <!-- Root Link -->
+  <link name="world"/>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Circular_base.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Fixed Joint: world -> base_link -->
+  <joint name="joint_1" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <!-- Base Plate Link -->
+  <link name="base_plate">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Rotating_waste.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Revolute Joint: base_link -> base_plate -->
+  <joint name="joint_2" type="revolute">
+    <parent link="base_link"/>
+    <child link="base_plate"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.4"/>
+    <limit lower="${-PI/2}" upper="${PI/2}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <link name="Arm_1" type="revolute">
+    <visual>
+      <origin rpy="0 1 4.7124" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Arm1.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="base_plate"/>
+    <child link="Arm_1"/>
+    <axis xyz="1 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.4"/>
+    <limit lower="${-PI/2}" upper="${PI/2}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <link name="Arm_2" type="revolute">
+    <visual>
+      <origin rpy="3.14159 0 4.7124" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Arm2.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="Arm_1"/>
+    <child link="Arm_2"/>
+    <axis xyz="1 0 0"/>
+    <origin rpy="0 0 0" xyz="-0.1 0.75 1.2"/>
+    <limit lower="${-PI/2}" upper="${PI/2}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <link name="Arm_3" type="revolute">
+    <visual>
+      <origin rpy="0 1.5708 3.14159" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Arm3.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="Arm_2"/>
+    <child link="Arm_3"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="-0.051 1.08 -0.01"/>
+    <limit lower="${-PI/2}" upper="${PI/2}" effort="${effort}" velocity="${velocity}"/>
+  </joint> 
+  
+  <!-- ================== GRIPPER BASE ================== -->
+  <link name="Gripper_Base">
+    <visual>
+      <origin rpy="0 3.1416 1.5708" xyz="0.2 0.01 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Gripper Base.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="Arm_3"/>
+    <child link="Gripper_Base"/>
+    <axis xyz="1 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0.25 0"/>
+    <limit lower="${-PI/2}" upper="${PI/2}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <!-- ================== GEARS ================== -->
+  <link name="Gear_Arm_1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Gear Arm1.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="Gear_Arm_2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Gear Arm2.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- ================== LEFT GEAR ================== -->
+<joint name="joint_7" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Gear_Arm_1"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 0.7854" xyz="0.271 0.305 0.100"/>
+  <mimic joint="joint_9" multiplier="1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="${effort}" velocity="${velocity}"/>
+</joint>
+
+<!-- ================== RIGHT GEAR ================== -->
+<joint name="joint_8" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Gear_Arm_2"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 -0.7854" xyz="0 0.305 0.100"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="${effort}" velocity="${velocity}"/>
+</joint>
+
+<!-- ================== LEFT FINGER ================== -->
+<link name="Gripper_1">
+  <visual>
+    <origin rpy="3.1416 3.1416 1.5" xyz="0 0 -0.07"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Grip1.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_9" type="revolute">
+  <parent link="Gear_Arm_1"/>  
+  <child link="Gripper_1"/>
+  <origin xyz="0.305 -0.01 0" rpy="0 0 0"/>
+  <axis xyz="0 0 1"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint>
+
+<!-- ================== RIGHT FINGER ================== -->
+<link name="Gripper_2">
+  <visual>
+    <origin rpy="0 3.1416 1.5" xyz="0 0 -0.10"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Grip1.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_10" type="revolute">
+  <parent link="Gear_Arm_2"/>  
+  <child link="Gripper_2"/> 
+  <origin xyz="-0.305 0.01 0" rpy="0 0 0"/>
+  <axis xyz="0 0 1"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint>
+
+<!-- ================== SUPPORT LINKS ================== -->
+<link name="Grip_link1">
+  <visual>
+    <origin rpy="0 0 3.141593" xyz="0 0 0.1"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Gripper_Link.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_11" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Grip_link1"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 0.7854" xyz="0.192 0.514 0"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint> 
+
+<link name="Grip_link2">
+  <visual>
+    <origin rpy="0 0 3.141593" xyz="0 0 -0.05"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Gripper_Link.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_12" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Grip_link2"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 0.7854" xyz="0.192 0.514 0"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint> 
+
+<link name="Grip_link3">
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0.05"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Gripper_Link.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_13" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Grip_link3"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 0" xyz="-1 0.5 0"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint> 
+
+<link name="Grip_link4">
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+    <geometry>
+      <mesh filename="package://dreamobot_description/meshes/Gripper_Link.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="joint_14" type="revolute">
+  <parent link="Gripper_Base"/>
+  <child link="Grip_link4"/>
+  <axis xyz="0 0 1"/>
+  <origin rpy="0 0 0" xyz="-1 0.5 0"/>
+  <mimic joint="joint_9" multiplier="-1.0"/>
+  <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
+</joint> 
+
+</robot>

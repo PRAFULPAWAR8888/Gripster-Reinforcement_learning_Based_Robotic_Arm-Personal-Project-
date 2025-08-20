@@ -1,0 +1,4 @@
+source;share/dreambot_cpp_examples/local_setup.bash
+source;share/dreambot_cpp_examples/local_setup.dsv
+source;share/dreambot_cpp_examples/local_setup.sh
+source;share/dreambot_cpp_examples/local_setup.zsh

@@ -1,0 +1,7 @@
+[console_scripts]
+simple_action = dreambot_py_examples.dreambot_py_examples.simple_action:main
+simple_client = dreambot_py_examples.dreambot_py_examples.simple_client:main
+simple_parameter = dreambot_py_examples.dreambot_py_examples.simple_parameter:main
+simple_publisher = dreambot_py_examples.dreambot_py_examples.simple_publisher:main
+simple_service = dreambot_py_examples.dreambot_py_examples.simple_service:main
+simple_subscriber = dreambot_py_examples.dreambot_py_examples.simple_subscriber:main

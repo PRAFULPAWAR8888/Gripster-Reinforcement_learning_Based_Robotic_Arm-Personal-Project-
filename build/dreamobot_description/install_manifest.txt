@@ -1,0 +1,26 @@
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Circular_base.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Gripper_Link.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Arm1.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Gear Arm1.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Rotating_waste.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Gripper Base.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Arm2.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Grip1.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Arm3.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Gear Arm2.stl
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/urdf/dreambot.urdf.xacro
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/ament_index/resource_index/package_run_dependencies/dreamobot_description
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/ament_index/resource_index/parent_prefix_path/dreamobot_description
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/environment/ament_prefix_path.sh
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/environment/ament_prefix_path.dsv
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/environment/path.sh
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/environment/path.dsv
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/local_setup.bash
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/local_setup.sh
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/local_setup.zsh
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/local_setup.dsv
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/package.dsv
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/ament_index/resource_index/packages/dreamobot_description
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/cmake/dreamobot_descriptionConfig.cmake
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/cmake/dreamobot_descriptionConfig-version.cmake
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/package.xml
