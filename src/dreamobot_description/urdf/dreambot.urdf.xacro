@@ -17,6 +17,12 @@
         <mesh filename="package://dreamobot_description/meshes/Circular_base.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dreamobot_description/meshes/Circular_base.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
   </link>
 
   <!-- Fixed Joint: world -> base_link -->
