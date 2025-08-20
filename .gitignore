@@ -1,29 +1,15 @@
-# Node.js / JavaScript
-node_modules/
-npm-debug.log
-yarn-error.log
+# ROS2 build artifacts
+build/
+install/
+log/
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.env
+# VSCode cache
+.vscode/*.db*
+.vscode/*.db-shm
+.vscode/*.db-wal
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs and temporary files
-*.log
-*.tmp
-
-# Large files (optional)
+# Generated files
+*.pdf
+*.gv
+*.bag
 *.zip
-*.tar
-*.mp4
-*.bin
-
-# IDEs
-.vscode/
-.idea/
