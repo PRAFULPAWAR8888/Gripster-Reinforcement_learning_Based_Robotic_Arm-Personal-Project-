@@ -1,0 +1,29 @@
+# Node.js / JavaScript
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Large files (optional)
+*.zip
+*.tar
+*.mp4
+*.bin
+
+# IDEs
+.vscode/
+.idea/
