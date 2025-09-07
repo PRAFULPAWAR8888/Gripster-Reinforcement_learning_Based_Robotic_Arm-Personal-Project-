@@ -9,6 +9,8 @@
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Arm3.stl
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/meshes/Gear Arm2.stl
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/urdf/dreambot.urdf.xacro
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/launch/display.launch.py
+/home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/rviz/display.rviz
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/ament_index/resource_index/package_run_dependencies/dreamobot_description
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/ament_index/resource_index/parent_prefix_path/dreamobot_description
 /home/praful_pawar/dreambot_ws/install/dreamobot_description/share/dreamobot_description/environment/ament_prefix_path.sh

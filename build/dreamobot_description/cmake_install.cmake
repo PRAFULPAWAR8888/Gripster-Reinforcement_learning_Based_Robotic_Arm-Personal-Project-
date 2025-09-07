@@ -46,6 +46,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dreamobot_description" TYPE DIRECTORY FILES
     "/home/praful_pawar/dreambot_ws/src/dreamobot_description/meshes"
     "/home/praful_pawar/dreambot_ws/src/dreamobot_description/urdf"
+    "/home/praful_pawar/dreambot_ws/src/dreamobot_description/launch"
+    "/home/praful_pawar/dreambot_ws/src/dreamobot_description/rviz"
     )
 endif()
 
