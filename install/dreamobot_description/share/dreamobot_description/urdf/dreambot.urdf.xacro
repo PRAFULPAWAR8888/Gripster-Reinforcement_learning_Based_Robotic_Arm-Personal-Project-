@@ -196,7 +196,7 @@
   <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="1.0"/>
 </joint>
 
-<!-- ================== SUPPORT LINKS ================== -->
+
 <link name="Grip_link1">
   <visual>
     <origin rpy="0 0 3.141593" xyz="0 0 0.1"/>
